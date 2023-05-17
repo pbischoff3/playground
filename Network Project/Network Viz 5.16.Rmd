@@ -7,8 +7,13 @@ output:
 date: "2023-05-17"
 ---
 # Outstanding Questions
-* <span style="color: red;">Question 1: As for column titles, can these be anything? Also, in this particular example, does size and weight matter? Lastly, what needs to be consistent across data sources (for example, does 'id' need to be in this particular format?)</span> <br>
+
+* <span style="color: red;">Question 1: As for column titles, can these be anything? Lastly, what needs to be consistent across data sources (for example, does 'id' need to be in this particular format?)</span> <br>
+
 * <span style="color: red;">Question 2: What is the specific format that netplot requires things to be in?</span> <br>
+
+* <span style="color: red;">Question 3: In this particular data set, it is interesting to note that there is no baseline for what the map should look like. How does it determine how to sort these things? </span> <br>
+
 
 
 # Source
@@ -105,4 +110,87 @@ net
 
 ```
 
-### **PAGE 10**
+```{r message=FALSE, warning=FALSE}
+E(net)       # The edges of the "net" object
+V(net)       # The vertices of the "net" object
+E(net)$type  # Edge attribute "type"
+V(net)$media # Vertex attribute "media"
+
+# Get an edge list or a matrix:
+as_edgelist(net, names=T)
+as_adjacency_matrix(net, attr="weight")
+
+# Or data frames describing nodes and edges:
+as_data_frame(net, what="edges")
+as_data_frame(net, what="vertices")
+```
+* This is cool because it lets us see some of the specifics. This helps me frame things easier in my mind. I feel like this helps me conceptualize the data a little bit better, as it shows where the edges should be as well as how the edges are. Also, the vertexes would be what is considered the different aspects having a relationship, while the edges show the relationship itself. (<mark >***Question 3***</mark>) 
+<br>
+
+## Now, let's plot the thing:
+```{r message=FALSE, warning=FALSE}
+plot(net) # not a pretty picture!
+
+```
+
+<br>
+
+* Interestingly, there is a loop you can see from s06 to itself. Those loops can be removed:
+
+```{r message=FALSE, warning=FALSE}
+net <- simplify(net, remove.multiple = F, remove.loops = T) 
+
+plot(net, edge.arrow.size=.4,vertex.label=NA)
+
+```
+
+<br>
+
+* This plot looks okay, but let's play with it now, shall we? The options are listed below:
+![](files/network 5.16/parameters.png)
+
+<br>
+
+```{r message=FALSE, warning=FALSE}
+plot(net, vertex.color="lightblue", vertex.shape="square", edge.curved=0, vertex.label=NA, edge.lty=4, arrow.mode=3, edge.color="lightpink", frame=TRUE, edge.arrow.size=.15)
+```
+
+<br>
+
+* If we want to change the labels to text, we can do so by doing this:
+
+```{r message=FALSE, warning=FALSE}
+V(net)$media
+
+plot(net, vertex.label=V(net)$media, vertex.color="lightblue", vertex.shape="square", edge.curved=0, vertex.label=NA, edge.lty=4, arrow.mode=3, edge.color="lightpink", frame=TRUE, edge.arrow.size=.15, vertex.frame.color="#ffffff", vertex.label.color="black")
+```
+
+<br>
+
+* Now, how about changing things based on the igrapj object?
+
+<br>
+
+
+```{r message=FALSE, warning=FALSE}
+# Generate colors based on media type:
+colrs <- c("darkgreen", "gray", "black")
+V(net)$color <- colrs[V(net)$media.type]
+
+# Compute node degrees (#links) and use that to set node size:
+deg <- degree(net, mode="all")
+V(net)$size <- deg*1
+V(net)$size <- V(net)$audience.size*0.6
+V(net)$label <- NA
+E(net)$width <- E(net)$weight/6
+
+plot(net)
+```
+
+
+```{r}
+plot(net, vertex.shape="none", vertex.label=V(net)$media, 
+     vertex.label.font=2, vertex.label.color="gray40",
+     vertex.label.cex=.7, edge.color="gray85")
+```
+
