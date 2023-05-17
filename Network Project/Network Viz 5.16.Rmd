@@ -1,0 +1,108 @@
+---
+title: "Network Viz 5.16"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+date: "2023-05-17"
+---
+# Outstanding Questions
+* <span style="color: red;">Question 1: As for column titles, can these be anything? Also, in this particular example, does size and weight matter? Lastly, what needs to be consistent across data sources (for example, does 'id' need to be in this particular format?)</span> <br>
+* <span style="color: red;">Question 2: What is the specific format that netplot requires things to be in?</span> <br>
+
+
+# Source
+This was all pulled from [this website](https://kateto.net/network-visualization).
+
+# Important Packages
+  * igraph
+  * network
+  * sna
+  * ggraph
+  * visNetwork
+  * threejs
+  * networkD3
+  * ndtv
+
+# Colors Exploration
+
+* x: point coordinate
+
+* y: point coordinate
+
+* pch: point symbol shape <br>
+![](files/network 5.16/pch shapes.png)
+  * [Source](http://www.sthda.com/english/wiki/r-plot-pch-symbols-the-different-point-shapes-available-in-r)<br>
+
+* cex: point size
+  * In R, the cex parameter is used to specify the size of text and symbols in a plot. Here are some of the commonly used options for cex: <br>
+    * Numeric values greater than 1 will increase the size of the text or symbol.
+    * Numeric values between 0 and 1 will decrease the size of the text or symbol.
+    * 1 is the default size. <br>
+  * You can specify the cex parameter in a plot function, such as plot() or text(), to change the size of the text or symbols. For example, plot(x, y, cex = 1.5) will plot the points with text and symbols 1.5 times larger than the default size.<br>
+
+* col: color <br>
+  * Names: <br>
+![](files/network 5.16/colors.png)
+  * Number: RRGGBB. Ranges from 00 to FF. Using a hex color picker is the best mode here <br>
+  
+  * RGB: choosing between 0 and 1. red, green, blue percentages. <br>
+  
+  * pal: can also set things under their own pallet. 
+  ![](files/network 5.16/pal.png)
+  
+* alpha: opacity / transparency. from 0-1. Needs to be inside "col" <br>
+
+* par: set parameters of the plot. [Source to find more](https://www.rdocumentation.org/packages/graphics/versions/3.6.2/topics/par)
+
+<br>
+
+## Playing Around 
+
+Dope, now lets play with what we have learned a bit. 
+```{r}
+plot(x=1:10, y=rep(5,10), pch=19, cex=3, col="dark red")
+
+```
+
+```{r}
+plot(x=1:10, y=rep(5,10), pch=8, cex=1, col="cyan")
+
+```
+
+```{r}
+par(bg="gray40")
+plot(x=1:10, y=rep(5,10), pch=15, cex=15, col=rgb(.8, .1, 1, alpha = .2))
+
+```
+
+# Data Exploration 
+* The shape of the node signals are often hard to see and left off
+* Nodes: specific data points
+* Links: connections between them 
+<br>
+```{r}
+nodes <- read.csv(file = "files/network 5.16/Dataset1-Media-Example-NODES.csv", header=T, as.is=T)
+links <- read.csv("files/network 5.16/Dataset1-Media-Example-EDGES.csv", header=T, as.is=T)
+
+# lets see what the data looks like 
+head(nodes)
+head(links)
+```
+<mark >***Question 1***</mark>  
+
+
+
+* Raw data needs to be changed to an igraph network object (<mark >***Question 2***</mark>). This is done using 'graph_from_data_frame()'
+  * 'd': edges (links in this example). *The first two columns need to be the ID of the source and target for each edge*. Attributes can follow.
+  * 'vertices': nodes. *The first column needs to be the id of the node*. Attributes can follow. 
+  
+
+```{r message=FALSE, warning=FALSE}
+library('igraph')
+net <- graph_from_data_frame(d=links, vertices=nodes, directed=T)
+net
+
+```
+
+### **PAGE 10**
