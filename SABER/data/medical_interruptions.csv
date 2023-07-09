@@ -1,33 +1,11 @@
-﻿,,Sci_Ident_AVE,Sci_Engagement_Ave,Sci_SenseOfBelong_Ave,Sci_Career_Mot_AVE,Sci_Interest_Ave,Self_Determin_Ave,Self_Efficacy_Ave,Value_Peers_Ave,Communal_Sci_Ave,Med_interrupt_academics
-Sci_Ident_AVE,Pearson Correlation,1,.664**,.602**,.579**,.676**,.452**,.523**,.110*,.261**,-0.001
-Sci_Ident_AVE,Sig. (2-tailed),,0,0,0,0,0,0,0.031,0,0.989
-Sci_Ident_AVE,N,390,390,390,390,390,390,390,390,390,235
-Sci_Engagement_Ave,Pearson Correlation,.664**,1,.601**,.507**,.609**,.448**,.454**,.158**,.285**,0.102
-Sci_Engagement_Ave,Sig. (2-tailed),0,,0,0,0,0,0,0.002,0,0.12
-Sci_Engagement_Ave,N,390,390,390,390,390,390,390,390,390,235
-Sci_SenseOfBelong_Ave,Pearson Correlation,.602**,.601**,1,.471**,.583**,.497**,.532**,.312**,.315**,-.150*
-Sci_SenseOfBelong_Ave,Sig. (2-tailed),0,0,,0,0,0,0,0,0,0.022
-Sci_SenseOfBelong_Ave,N,390,390,390,390,390,390,390,390,390,235
-Sci_Career_Mot_AVE,Pearson Correlation,.579**,.507**,.471**,1,.581**,.425**,.440**,.247**,.257**,0.006
-Sci_Career_Mot_AVE,Sig. (2-tailed),0,0,0,,0,0,0,0,0,0.928
-Sci_Career_Mot_AVE,N,390,390,390,390,390,390,390,390,390,235
-Sci_Interest_Ave,Pearson Correlation,.676**,.609**,.583**,.581**,1,.520**,.500**,.189**,.343**,0.029
-Sci_Interest_Ave,Sig. (2-tailed),0,0,0,0,,0,0,0,0,0.654
-Sci_Interest_Ave,N,390,390,390,390,390,390,390,390,390,235
-Self_Determin_Ave,Pearson Correlation,.452**,.448**,.497**,.425**,.520**,1,.509**,.260**,.221**,-0.095
-Self_Determin_Ave,Sig. (2-tailed),0,0,0,0,0,,0,0,0,0.145
-Self_Determin_Ave,N,390,390,390,390,390,390,390,390,390,235
-Self_Efficacy_Ave,Pearson Correlation,.523**,.454**,.532**,.440**,.500**,.509**,1,.201**,.216**,-.164*
-Self_Efficacy_Ave,Sig. (2-tailed),0,0,0,0,0,0,,0,0,0.012
-Self_Efficacy_Ave,N,390,390,390,390,390,390,390,390,390,235
-Value_Peers_Ave,Pearson Correlation,.110*,.158**,.312**,.247**,.189**,.260**,.201**,1,.214**,0.004
-Value_Peers_Ave,Sig. (2-tailed),0.031,0.002,0,0,0,0,0,,0,0.954
-Value_Peers_Ave,N,390,390,390,390,390,390,390,390,390,235
-Communal_Sci_Ave,Pearson Correlation,.261**,.285**,.315**,.257**,.343**,.221**,.216**,.214**,1,-0.013
-Communal_Sci_Ave,Sig. (2-tailed),0,0,0,0,0,0,0,0,,0.844
-Communal_Sci_Ave,N,390,390,390,390,390,390,390,390,390,235
-Med_interrupt_academics,Pearson Correlation,-0.001,0.102,-.150*,0.006,0.029,-0.095,-.164*,0.004,-0.013,1
-Med_interrupt_academics,Sig. (2-tailed),0.989,0.12,0.022,0.928,0.654,0.145,0.012,0.954,0.844,
-Med_interrupt_academics,N,235,235,235,235,235,235,235,235,235,235
-** Correlation is significant at the 0.01 level (2-tailed).,,,,,,,,,,,
-* Correlation is significant at the 0.05 level (2-tailed).,,,,,,,,,,,
+﻿Variable,Sci_Ident_AVE,Sci_Engagement_Ave,Sci_SenseOfBelong_Ave,Sci_Career_Mot_AVE,Sci_Interest_Ave,Self_Determin_Ave,Self_Efficacy_Ave,Value_Peers_Ave,Communal_Sci_Ave,Med_interrupt_academics
+Sci_Ident_AVE,1,.664**,.602**,.579**,.676**,.452**,.523**,.110*,.261**,-0.001
+Sci_Engagement_Ave,.664**,1,.601**,.507**,.609**,.448**,.454**,.158**,.285**,0.102
+Sci_SenseOfBelong_Ave,.602**,.601**,1,.471**,.583**,.497**,.532**,.312**,.315**,-.150*
+Sci_Career_Mot_AVE,.579**,.507**,.471**,1,.581**,.425**,.440**,.247**,.257**,0.006
+Sci_Interest_Ave,.676**,.609**,.583**,.581**,1,.520**,.500**,.189**,.343**,0.029
+Self_Determin_Ave,.452**,.448**,.497**,.425**,.520**,1,.509**,.260**,.221**,-0.095
+Self_Efficacy_Ave,.523**,.454**,.532**,.440**,.500**,.509**,1,.201**,.216**,-.164*
+Value_Peers_Ave,.110*,.158**,.312**,.247**,.189**,.260**,.201**,1,.214**,0.004
+Communal_Sci_Ave,.261**,.285**,.315**,.257**,.343**,.221**,.216**,.214**,1,-0.013
+Med_interrupt_academics,-0.001,0.102,-.150*,0.006,0.029,-0.095,-.164*,0.004,-0.013,1
