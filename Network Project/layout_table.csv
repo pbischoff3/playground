@@ -1,0 +1,6 @@
+Name of Algorithm,Creator,Best For,Example
+Circle,Janet Six,Subnetworks with small number of edges,circle.png
+DrL (Distributed Recursive Layout),Shawn Martin,Large abstract datasets,drl.png
+Fruchterman-Reingold (FR),Thomas Fruchterman & Edward Reingold,Large social networks,fr.png
+Kamada-Kawai (KK),Tomihisa Kamada & Satoru Kawai,Large network structures,kk.png
+LGL (Large Graph Layout),Alex Adia,"Large, dense biological networks",lgl.png
